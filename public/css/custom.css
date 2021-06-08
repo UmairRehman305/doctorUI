@@ -1,0 +1,19 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+    font-family: "Poppins", sans-serif;
+}
+.logo {
+    height: 40px;
+    width: 126px;
+}
+.nav-link {
+    color: black;
+}
+.nav-link:hover {
+    color: #0cb8b6;
+}
