@@ -2076,10 +2076,6 @@ input[type="reset"]:active {
     background-color: white !important;
     box-shadow: none !important;
 }
-.font-web{
-    font-family: "Open Sans", sans-serif;
+.font-web {
+    font-family: "Open Sans", sans-serif !important;
 }
-
-
-
-
