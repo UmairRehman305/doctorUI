@@ -30,7 +30,25 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input   id="email" type="email"  name="email" class="form-control form-control-user  @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Enter your email"   required autocomplete="email" >                                        
+                                        <input id="phone" type="number"  name="phone" class="form-control form-control-user  @error('phone') is-invalid @enderror" placeholder="Enter your phone number"   required>                                        
+                                        @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div style="display:none" class="form-group">
+                                        <input id="role" value="Subscriber"  name="role" class="form-control form-control-user  @error('role') is-invalid @enderror" placeholder=""   required>                                        
+                                        @error('role')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input  id="email" type="email"  name="email" class="form-control form-control-user  @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Enter your email"   required autocomplete="email" >                                        
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -52,7 +70,7 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    {{ __('Register') }}
+                                    {{ __('Register') }}    
                                     </button>
                                    
                                 </form>

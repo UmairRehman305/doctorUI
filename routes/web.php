@@ -26,6 +26,9 @@ Route::get('/contact-us', function () {
 Route::get('/about-us', function () {
     return view('pAboutUs');
 });
+Route::get('/doctors-profile', function () {
+    return view('pDoctorsProfile');
+});
 
 Auth::routes();
 

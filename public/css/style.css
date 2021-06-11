@@ -22,7 +22,9 @@ a:hover {
     color: #3b8af2;
     text-decoration: none;
 }
-
+.bcolor {
+    color: #091538;
+}
 h1,
 h2,
 h3,
@@ -30,6 +32,9 @@ h4,
 h5,
 h6 {
     font-family: "Roboto", sans-serif;
+}
+.font-weight-bold {
+    font-weight: bold;
 }
 
 /*--------------------------------------------------------------
@@ -2047,3 +2052,34 @@ input[type="reset"]:active {
     -o-transition: opacity 1.5s;
     transition: opacity 1.5s;
 }
+.css-custom-card {
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    border-radius: 20px;
+}
+.profile-image {
+    width: 300px;
+    height: 400px;
+}
+.doctor-profile-image h2 {
+    font-size: 32px;
+    font-weight: 100;
+}
+.accordion-item {
+    border: 1px solid #091538;
+}
+.accordion-button:focus {
+    border-color: #091538 !important;
+    box-shadow: none !important;
+}
+.accordion-button:not(.collapsed) {
+    color: #091538 !important;
+    background-color: white !important;
+    box-shadow: none !important;
+}
+.font-web{
+    font-family: "Open Sans", sans-serif;
+}
+
+
+
+
