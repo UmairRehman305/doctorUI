@@ -9,7 +9,7 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link scrollto" href="/">Home</a></li>
-        <li><a class="nav-link scrollto" href="#">Doctor's Profile</a></li>
+        <li><a class="nav-link scrollto" href="/doctors-profile">Doctor's Profile</a></li>
         <li><a class="nav-link scrollto" href="/about-us">About Us</a></li>
         <li><a class="nav-link scrollto " href="/contact-us">Contact Us</a></li>
         <li><a class="nav-link scrollto" href="/login">Login</a></li>

@@ -20,3 +20,20 @@ Route::get('/test', function () {
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/contact-us', function () {
+    return view('pContactUs');
+});
+Route::get('/about-us', function () {
+    return view('pAboutUs');
+});
+Route::get('/doctors-profile', function () {
+    return view('pDoctorsProfile');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
