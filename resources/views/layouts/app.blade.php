@@ -18,6 +18,39 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+ <!-- Vendor JS Files -->
+ <script src="vendor/aos/aos.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/glightbox/js/glightbox.min.js"></script>
+<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="vendor/php-email-form/validate.js"></script>
+<script src="vendor/purecounter/purecounter.js"></script> 
+<script src="vendor/swiper/swiper-bundle.min.js"></script>
+<script src="vendor/waypoints/noframework.waypoints.js"></script>
+
+<!-- Template Main JS File -->
+<script src="js/main.js"></script>
+
+<!-- Template Main CSS File -->
+<link href="css/style.css" rel="stylesheet">
+
+
+
 </head>
 <body>
     <div id="app">
@@ -34,8 +67,14 @@
                     <li><a class="nav-link scrollto" href="/register">Sign Up</a></li>
                     @endif
                 @else
+                    <li>
+                        <a href="fill-from">Create Profile</a>
+                    </li>
+                    <li>
+                        <a>My Form</a>
+                    </li>
                     <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>  
+                        <ul> 
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -56,6 +95,8 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('register-form-1')
+            
         </main>
     </div>
 </body>
