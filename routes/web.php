@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    return view('welcome');
+Route::get('/fill-from', function () {
+    return view('register-form-1');
 });
+// Route::get('/test', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', function () {
     return view('index');
