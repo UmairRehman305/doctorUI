@@ -22,8 +22,13 @@ class userFormMiddlewareController extends Controller
         $personal = personal_info::where( 'userID' , Auth::id()) -> get();
         foreach ($personal as $a){
             $b = $a->userID;
+            $c = $a->role;
         }
-        if ($b == Auth::id()){
+
+        if (Auth:: user() -> role == 'admin'){
+            return redirect('dashboard'); 
+        }
+        else if ($b == Auth::id()){
             return redirect('view-profile'); 
         }
         else {

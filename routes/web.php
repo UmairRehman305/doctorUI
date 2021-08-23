@@ -66,6 +66,9 @@ Route::post('/edit-course', 'InsertCoursController@edit');
 
 Route::get('/archive-profile/{userID}', 'dashboardController@archive');
 
+
+Route::get('/publish-profile/{userID}', 'dashboardController@publish');
+
 Route::get('/delete-publication/{formID}', 'InsertPublicationController@delete');
 
 Route::get('/delete-confrence/{formID}', 'InsertConfrenceController@delete');

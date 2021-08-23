@@ -84,21 +84,23 @@
     </div>
     
     <div class="container">
-        <Button class="d-flex justify-content-center m-auto mt-5" style="
+        <a href="/doctors-profile" class="d-flex justify-content-center m-auto mt-5" style="
             display: flex !important;
+            width:  200px;
+            text-align:center;
             justify-content:center !important;
             text-transform: uppercase;
             font-weight: 500;
             font-size: 14px;
             letter-spacing: 1px;
-            padding: 10px 28px;
+            padding: 10px 15px;
             border-radius: 4px;
             transition: 0.5s;
             color: #fff;
             background: #091538;
             border: 1px solid #091538;" >
                 View All Doctors
-        </Button>
+        </a>
     </div>
     
     </div>

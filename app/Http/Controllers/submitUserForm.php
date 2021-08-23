@@ -28,6 +28,7 @@ class submitUserForm extends Controller
         $personal_info -> intrestArea = $req -> intrestArea; 
         $personal_info -> phoneOrEmail = $req -> email; 
         $personal_info -> birthdate = $req -> dateOfBirth;
+        $personal_info -> status = 1;
         $personal_info -> save();
 
 

@@ -4,8 +4,42 @@
   <div style="background: #f6f9fe" class="pt-5 pb-5">
     <div class="container">
         <div class=" col-md-12">
-            <div class="card" style="width: 100%;">
+            <div class="card position-relative" style="width: 100%;">
                 <h4  style="background:#091538 ; color: white !important;  border-top-right-radius: 10px; border-top-left-radius: 20px; height:80px; padding-top:20px !important" class="pt-2 card-header text-center">Personal information</h4>
+                    <div style="right:20px; top:-25px" class="position-absolute ">
+                        @foreach($personalDetails as $personInfo)    
+                            @if(Auth::user())
+                                @if (Auth::user()->role == 'admin')
+                                    @if ($personInfo->status == 1)
+                                        <a style="color:white" class="icon-custom d-flex justify-content-center pt-5"  onclick="return confirm(`Do you want to Archive : {{$personInfo -> userName}} ?`)" 
+                                        href={{"../../archive-profile/".$personInfo -> userID}}
+                                        > 
+                                        <i style="font-size:30px" class="bi bi-archive"></i>
+                                        </a>
+                                    
+                                        
+                                     @endif   
+                                @endif
+                            @endif
+                        @endforeach
+                    </div>
+
+                <div style="right:80px; top:-25px" class="position-absolute">
+                    @foreach($personalDetails as $personInfo)    
+                        @if(Auth::user())
+                            @if (Auth::user()->role == 'admin')
+                                @if ($personInfo -> status == 0)    
+                                    <a style="color:white" class="icon-custom d-flex justify-content-center pt-5"  onclick="return confirm(`Do you want to Publish : {{$personInfo -> userName}} ?`)" 
+                                    href={{"../../publish-profile/".$personInfo -> userID}}
+                                    > 
+                                    <i style="font-size:30px" class="bi bi-check2-all"></i>
+                                    </a>
+                                @endif
+                            @endif
+                        @endif
+                    @endforeach
+                </div>
+                
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
@@ -13,6 +47,9 @@
                             @foreach($personalDetails as $personInfo)
                                 <h4 class="card-subtitle mb-2 mt-2 bcolor text-center">{{$personInfo -> userName}}</h4> 
                                 <input type="hidden" id="formIDInput" type="text" value="{{$personInfo-> formID}}" />
+                                
+                                
+
                             @endforeach
                             @foreach($personalDetails as $personInfo)
                                 @if($personInfo->userID == Auth::id())

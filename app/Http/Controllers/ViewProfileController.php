@@ -26,10 +26,10 @@ class ViewProfileController extends Controller
             $userID =  Auth::id();
             $personalDetails = personal_Info :: where('userID', $userID) -> get() ;
             // $courseDetails = course_info::all();
-            $courseDetails = course_info::where( 'userID' , $userID) -> get();
+            $courseDetails = course_info:: orderBy('created_at', 'desc')->where( 'userID' , $userID) -> get();
 
-            $publicationDetails = publication_info:: where('userID' , $userID)-> get();
-            $confrenceDetails = confrence_info::where ('userID', $userID) ->get();
+            $publicationDetails = publication_info::orderBy('created_at', 'desc')-> where('userID' , $userID)-> get();
+            $confrenceDetails = confrence_info:: orderBy('created_at', 'desc')->where ('userID', $userID) ->get();
 
             
             return view('viewProfile' , ['userID' => $userID ,'personalDetails' => $personalDetails ,'courseDetails' => $courseDetails , 'publicationDetails' => $publicationDetails , 'confrenceDetails' => $confrenceDetails]);
@@ -41,6 +41,14 @@ class ViewProfileController extends Controller
 
     }
     function detail($userID) {
+        
+        if(Auth::user()){
+            $userRole =  Auth::user()->role;
+        }
+        else {
+            $userRole = "subscriber";
+        }
+
         $b= 2;
         $personal = personal_info::where( 'userID' , $userID) -> get();
     
@@ -52,7 +60,7 @@ class ViewProfileController extends Controller
         $confrenceDetails = confrence_info::where ('userID', $userID) ->get();
 
         
-        return view('viewProfile' , ['userID' => $userID ,'personalDetails' => $personalDetails ,'courseDetails' => $courseDetails , 'publicationDetails' => $publicationDetails , 'confrenceDetails' => $confrenceDetails]);
+        return view('viewProfile' , ['userID' => $userID , 'userRole' => $userRole ,'personalDetails' => $personalDetails ,'courseDetails' => $courseDetails , 'publicationDetails' => $publicationDetails , 'confrenceDetails' => $confrenceDetails]);
         
     }
 }

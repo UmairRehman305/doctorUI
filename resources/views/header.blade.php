@@ -14,12 +14,12 @@
                 <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto" href="/">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/doctors-profile">Doctor's Profile</a></li>
-                    <li><a class="nav-link scrollto" href="/about-us">About Us</a></li>
-                    <li><a class="nav-link scrollto " href="/contact-us">Contact Us</a></li>
+                    <li><a class="nav-link scrollto" href="../doctors-profile">Doctor's Profile</a></li>
+                    <li><a class="nav-link scrollto" href="../about-us">About Us</a></li>
+                    <li><a class="nav-link scrollto " href="../contact-us">Contact Us</a></li>
                     @if(Auth::user())
                       @if(Auth::user()->role == 'admin')
-                        <li><a class="nav-link scrollto " href="/dashboard">Dashboard</a></li>
+                        <li><a class="nav-link scrollto " href="../dashboard">Dashboard</a></li>
                       @endif
                     @endif
                     
@@ -31,13 +31,13 @@
                 @else
                 @if($profile-> isEmpty())
                   <li>
-                      <a href="fill-from">Create Profile</a>
+                      <a href="../fill-from">Create Profile</a>
                   </li>
                 @endif
                 
                 @if($profile-> isNotEmpty())                   
                     <li>
-                        <a href="view-profile">My Profile</a>
+                        <a href="../view-profile">My Profile</a>
                     </li>
                 @endif
 

@@ -24,18 +24,30 @@ class dashboardController extends Controller
 
         $courseDetails = Course_info :: get();
         $courseCount = count($courseDetails);
+
+        $personalDetails = personal_Info :: where('status', 0) -> paginate(30) ;
+
+
         return view(
             'dashboard' , 
             ['courseCount' => $courseCount , 
             'confrencesCount' => $confrencesCount , 
             'doctorCount' => $doctorCount, 
-            'publicationsCount' => $publicationsCount]
+            'publicationsCount' => $publicationsCount,
+            'personalDetails' => $personalDetails
+            ]
         );
     }
 
     function archive($userID){
 
         DB::update('update prsonal_info set status = ? where userID = ?',['0',$userID]);
+        return redirect()->back(); 
+
+    }
+
+    function publish($userID){
+        DB::update('update prsonal_info set status = ? where userID = ?',['1',$userID]);
         return redirect()->back(); 
 
     }

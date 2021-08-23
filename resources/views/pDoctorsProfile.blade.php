@@ -25,11 +25,16 @@
     
         <div class="card css-custom-card pt-3 pb-3 mb-5">
             <div class="card-body">
-            <a class="icon-custom d-flex justify-content-end"  onclick="return confirm(`Do you want to Archive : {{$personInfo -> userName}} ?`)" 
-             href={{"archive-profile/".$personInfo -> userID}}
-            > 
-             <i style="font-size:18px" class="bi bi-archive"></i>
-            </a>
+            @if(Auth::user())
+                @if (Auth::user()->role == 'admin')
+                <a class="icon-custom d-flex justify-content-end"  onclick="return confirm(`Do you want to Archive : {{$personInfo -> userName}} ?`)" 
+                href={{"archive-profile/".$personInfo -> userID}}
+                > 
+                <i style="font-size:18px" class="bi bi-archive"></i>
+                </a>
+                @endif
+            @endif
+
                 <div class="col-md-12 row">
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center">    
