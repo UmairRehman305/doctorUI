@@ -178,8 +178,8 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
 	
 }
 </style>
-<div class="container">
-    <div class="row justify-content-center">
+<div style="background:#f6f9fe" class=" pt-5 pb-5" >
+    <div class="container justify-content-center">
         <div class="col-md-12">
             <div class="card white-background ">
                 <div class="card-header section-title white-background">
@@ -187,8 +187,8 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
                 </div>
                 <div class="card-body">
                     
-                <form id="regForm" action="/action_page.php">
-                   
+                <form id="regForm" action="submitUserForm" method="POST">
+                @csrf
                     <!-- One "tab" for each step in the form: -->
                     <div class="tab">
                     <div class="section-title white-background">
@@ -196,63 +196,63 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
                     </div>
                         <div class="row">
                             <div class="col form-group">
-                                <input style="width:100%" placeholder="Enter your full name" oninput="this.className = ''" name="name">
+                                <input style="width:100%" type="text" placeholder="Enter your full name" oninput="this.className = ''" name="name">
                             </div>
                             <div class="col form-group">
-                                <input style="width:100%" type="email" placeholder="Qualification" oninput="this.className = ''" name="email">
+                                <input style="width:100%" type="email" placeholder="Qualification" oninput="this.className = ''" name="qualification">
                             </div>
                         </div>
                         <div class="row ">
                             <div class="col form-group">
-                                <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="Default select example">
-                                    <option selected>Pakitan</option>
-                                    <option value="1">India</option>
-                                    <option value="2">Srilanka</option>
-                                    <option value="3">Chine</option>
+                                <select name="country" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="Default select example">
+                                    <option value="" selected>Select your Country</option>
+                                    <option value="Pakistan">Pakitan</option>
+                                    <option value="India">India</option>
+                                    <option value="USA">Srilanka</option>
+                                    <option value="KSA">China</option>
                                 </select>
                             </div>
                             <div class="col form-group">
-                                <input style="width:100%"  style="width:100%" oninput="this.className = ''"  type="number" name="name" class="form-control" id="name" placeholder="Country Id Number" required="">
+                                <input style="width:100%"  style="width:100%" oninput="this.className = ''"  type="number" name="countryID" class="form-control" placeholder="Country Id Number ie 42211-xxxx-xxxx" required="">
                             </div>
                         </div>
 
                         <div class="row ">
                             <div class="col form-group">
-                                <input style="width:100%" oninput="this.className = ''"  type="number" name="name" class="form-control" id="name" placeholder="Medical Paractice License Number" required="">
-                                
+                                <input style="width:100%" oninput="this.className = ''"  type="number" name="medicalLicenseNumber" class="form-control" placeholder="Medical Paractice License Number ie 1500xxx" required="">    
                             </div>
                             <div class="col form-group">
-                                <input style="width:100%" oninput="this.className = ''"  type="name" name="name" class="form-control" id="name" placeholder="Institution/Clinic Name" required="">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col form-group">
-                                <input style="width:100%" oninput="this.className = ''"  type="number" name="name" class="form-control" id="name" placeholder="Institution/ Clinic City" required="">
-                                
-                            </div>
-                            <div class="col form-group">
-                                <input style="width:100%"  oninput="this.className = ''"  type="name" name="name" class="form-control" id="name" placeholder="Specility Area" required="">
+                                <input style="width:100%" oninput="this.className = ''"  type="name" name="institutionOrClinicName" class="form-control" placeholder="Institution/Clinic Name" required="">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col form-group">
-                                <input style="width:100%"  oninput="this.className = ''"  type="number" name="name" class="form-control" id="name" placeholder="Intrest Area" required="">
+                                <input style="width:100%" oninput="this.className = ''"  type="number" name="instituteAndCityName" class="form-control" placeholder="Institution/ Clinic City" required="">
                                 
                             </div>
                             <div class="col form-group">
-                                <input style="width:100%" oninput="this.className = ''"   type="number" name="name" class="form-control" id="name" placeholder="Phone Number" required="">
+                                <input style="width:100%"  oninput="this.className = ''"  type="name" name="specialityArea" class="form-control" placeholder="Specility Area" required="">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col form-group">
+                                <input style="width:100%"  oninput="this.className = ''"  type="name" name="intrestArea" class="form-control" placeholder="Intrest Area" required="">
+                                
+                            </div>
+                            <div class="col form-group">
+                                <input style="width:100%" oninput="this.className = ''"   type="number" name="phone" class="form-control"placeholder="Phone Number" required="">
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col form-group">
-                                <input style="width:100%"  oninput="this.className = ''"  type="" name="name" class="form-control" id="" placeholder="Email Address" required="">
+                                <input style="width:100%"  oninput="this.className = ''"  type="" name="email" class="form-control" placeholder="Email Address" required="">
                                 
                             </div>
                             <div class="col form-group">
-                                <input style="width:100%"  oninput="this.className = ''"  type="" name="name" class="form-control" id="" placeholder="Daite of Birth" required="">
+                                <input style="width:100%"  oninput="this.className = ''"  type="date" name="dateOfBirth" class="form-control" placeholder="Daite of Birth" required="">
                             </div>
                         </div>
                     </div>
@@ -260,40 +260,40 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
                     <div class="tab">
                     <div class="section-title white-background d-flex">
                         <h3 style="font-size:22px" class="text-left blue-color">Courses Information</h3>
-                        <button class="custom-button ml-auto" onclick="cloneCoursesSection()">Add More Courses</button>
+                        <!-- <button class="custom-button ml-auto" onclick="cloneCoursesSection()">Add More Courses</button> -->
                     </div>
                         <div id="courses" class="mb-5">
                             <div  class="row">
                                 <div class="col form-group">
-                                    <input style="width:100%" placeholder="Course Title" oninput="this.className = ''" name="coursetitle">
+                                    <input style="width:100%" placeholder="Course Title" oninput="this.className = ''" name="cTitle">
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%" type="email" placeholder="Course Provider" oninput="this.className = ''" name="couseProvider">
+                                    <input style="width:100%" type="email" placeholder="Course Provider" oninput="this.className = ''" name="cProvider">
                                 </div>
                             </div>
                             <div class="row ">
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="cFormat" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Format</option>
                                         <option value="online">Online</option>
                                         <option value="face to Face">Face to Face</option>
                                     </select>
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%"  style="width:100%" oninput="this.className = ''"  type="text" name="gratntProvider" class="form-control" id="name" placeholder="Grant Provider" required="">
+                                    <input style="width:100%"  style="width:100%" oninput="this.className = ''"  type="text" name="cGratntProvider" class="form-control" placeholder="Grant Provider" required="">
                                 </div>
                             </div>
 
                             <div class="row ">
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="cContent" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Content</option>
-                                        <option value="sponsord">Sponsored</option>
+                                        <option value="sponsord">sponsored</option>
                                         <option value="Independent">Independent</option>
                                     </select>
                                 </div>
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="cStatus" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Completed</option>
                                         <option value="sponsord">Participate</option>
                                         <option value="Independent">Speaker</option>
@@ -303,59 +303,59 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
 
                             <div class="row">
                                 <div class="col form-group">
-                                    <input style="width:100%" oninput="this.className = ''"  type="date" name="date" class="form-control" id="name" placeholder="Month Year" required="">
+                                    <input style="width:100%" oninput="this.className = ''"  type="date" name="cCompletetionDate" class="form-control" placeholder="Month Year" required="">
                                     
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%"  oninput="this.className = ''"  type="number" name="name" class="form-control" id="creditHour" placeholder="Credit hour" required="">
+                                    <input style="width:100%"  oninput="this.className = ''"  type="number" name="cCreditHour" class="form-control" placeholder="Credit hour" required="">
                                 </div>
                             </div>
 
                             <div class="row">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Example file input</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input type="file" name="courseCertificateImage" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                         </div>
                         </div>
                     </div>
                     <div class="tab">
                     <div class="section-title white-background d-flex">
-                        <h3 style="font-size:22px" class="text-left blue-color">Counfrences Information</h3>
-                        <button class="custom-button ml-auto" onclick="cloneConfrenceSection()">Add More Coufrences</button>
+                        <h3 style="font-size:22px" class="text-left blue-color">Conferences Information</h3>
+                        <!-- <button class="custom-button ml-auto" onclick="cloneConfrenceSection()">Add More Coufrences</button> -->
                     </div>
                         <div id="confrenceSection">
                             <div class="row">
                                 <div class="col form-group">
-                                    <input style="width:100%" placeholder="Confrence Title" oninput="this.className = ''" name="confrencetitle">
+                                    <input style="width:100%" placeholder="Confrence Title" oninput="this.className = ''" name="cfTitle">
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%" type="email" placeholder="confence Provider" oninput="this.className = ''" name="confrenceProvider">
+                                    <input style="width:100%" type="email" placeholder="confence Provider" oninput="this.className = ''" name="cfProvider">
                                 </div>
                             </div>
                             <div class="row ">
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="cfFormat" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Format</option>
                                         <option value="online">Online</option>
                                         <option value="face to Face">Face to Face</option>
                                     </select>
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%"  style="width:100%" oninput="this.className = ''"  type="text" name="confrencegratntProvider" class="form-control" id="name" placeholder="Grant Provider" required="">
+                                    <input style="width:100%" oninput="this.className = ''"  type="text" name="cfgrantForAttend" class="form-control" placeholder="Grant for Attend" required="">
                                 </div>
                             </div>
 
                             <div class="row ">
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="cfContent" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Content</option>
-                                        <option value="sponsord">Sponsored</option>
+                                        <option value="sponsord">sponsored</option>
                                         <option value="Independent">Independent</option>
                                     </select>
                                 </div>
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="cfStatus" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Completed</option>
                                         <option value="sponsord">Participate</option>
                                         <option value="Independent">Speaker</option>
@@ -365,18 +365,18 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
 
                             <div class="row">
                                 <div class="col form-group">
-                                    <input style="width:100%" oninput="this.className = ''"  type="date" name="date" class="form-control" id="name" placeholder="Month Year" required="">
+                                    <input style="width:100%" oninput="this.className = ''"  type="date" name="cfCompleteDate" class="form-control" placeholder="Month Year" required="">
                                     
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%"  oninput="this.className = ''"  type="number" name="name" class="form-control" id="creditHour" placeholder="Credit hour" required="">
+                                    <input style="width:100%"  oninput="this.className = ''"  type="number" name="cfCreditHour" class="form-control" id="creditHour" placeholder="Credit hour" required="">
                                 </div>
                             </div>
 
                             <div class="row">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Example file input</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input name="cfCertificateImage" type="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                             </div>
                         </div>
@@ -384,42 +384,42 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
                     <div class="tab">
                     <div class="section-title white-background d-flex">
                         <h3 style="font-size:22px" class="text-left blue-color">Publication Information</h3>
-                        <button class="custom-button ml-auto" onclick="clonepublicationSection()">Add More Publication</button>
+                        <!-- <button class="custom-button ml-auto" onclick="clonepublicationSection()">Add More Publication</button> -->
                     </div>
                         <div id="publicationSection">
                             <div class="row">
                                 <div class="col form-group">
-                                    <input style="width:100%" placeholder="Publication Title" oninput="this.className = ''" name="publicationtitle">
+                                    <input style="width:100%" placeholder="Publication Title" oninput="this.className = ''" name="pTitle">
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%" type="email" placeholder="Publication Provider" oninput="this.className = ''" name="publication">
+                                    <input style="width:100%" type="email" placeholder="Publication Provider" oninput="this.className = ''" name="pProvider">
                                 </div>
                             </div>
                             <div class="row ">
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="pFormat" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Format</option>
                                         <option value="online">Prnt</option>
                                         <option value="face to Face">Online</option>
                                     </select>
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%"  style="width:100%" oninput="this.className = ''"  type="text" name="publicationgratntProvider" class="form-control" id="name" placeholder="Grant Provider" required="">
+                                    <input style="width:100%"  style="width:100%" oninput="this.className = ''"  type="text" name="pGratntProvider" class="form-control" placeholder="Grant Provider" required="">
                                 </div>
                             </div>
 
                             <div class="row ">
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="pContent" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Content</option>
-                                        <option value="sponsord">Sponsored</option>
+                                        <option value="sponsord">sponsored</option>
                                         <option value="Independent">Independent</option>
                                         <option value="Independent">Dependent</option>
 
                                     </select>
                                 </div>
                                 <div class="col form-group">
-                                    <select style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
+                                    <select name="pStatus" style="width:100%"  oninput="this.className = ''"  class="form-select" aria-label="">
                                         <option selected>Attended</option>
                                         <option value="sponsord">Participate</option>
                                         <option value="Independent">Speaker</option>
@@ -432,18 +432,18 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
 
                             <div class="row">
                                 <div class="col form-group">
-                                    <input style="width:100%" oninput="this.className = ''"  type="date" name="date" class="form-control" id="name" placeholder="Month Year" required="">
+                                    <input style="width:100%" oninput="this.className = ''"  type="date" name="pCompletetionDate" class="form-control" placeholder="Month Year" required="">
                                     
                                 </div>
                                 <div class="col form-group">
-                                    <input style="width:100%"  oninput="this.className = ''"  type="number" name="name" class="form-control" id="creditHour" placeholder="Credit hour" required="">
+                                    <input style="width:100%"  oninput="this.className = ''"  type="number" name="pCreditHour" class="form-control" placeholder="Credit hour" required="">
                                 </div>
                             </div>
 
                             <div class="row">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Example file input</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input name="pCertificateImage" type="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                             </div>
                         </div>
@@ -467,7 +467,7 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
                                 <p  class="blue-color">You have successfully fullfiled our requirements.
                                 </p>
                                     </div>
-                                <p class="regards blue-color">Click on publish button to publish your profile</p>
+                                <!-- <p class="regards blue-color">Click on publish button to publish your profile</p> -->
                             </div>
                         </div>
                        
@@ -475,7 +475,7 @@ background-image: linear-gradient(to bottom right,#02b3e4,#02ccba);
 
                     <div style="overflow:auto;">
                         <div style="display:flex; justify-content:center">
-                        <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="custom-button no-border">Previous</button>
+                        <button style="margin-right:10px" type="button" id="prevBtn" onclick="nextPrev(-1)" class="custom-button no-border">Previous</button>
                         <button type="button" id="nextBtn" onclick="nextPrev(1)"  class="custom-button no-border">Next</button>
                         </div>
                     </div>
@@ -509,6 +509,7 @@ function showTab(n) {
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Publish";
+    document.getElementById("nextBtn").type = "submit";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
