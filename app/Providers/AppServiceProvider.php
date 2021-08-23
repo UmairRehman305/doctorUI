@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Providers;
+use App\Personal_info;
+use Illuminate\Support\Facades\Auth;
+use View;
 
 use Illuminate\Support\ServiceProvider;
+use App\Publication_info;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }
