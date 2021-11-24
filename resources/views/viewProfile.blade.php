@@ -34,7 +34,7 @@
                                     > 
                                     <i style="font-size:30px" class="bi bi-check2-all"></i>
                                     </a>
-                                @endif
+                                @endifgit fet
                             @endif
                         @endif
                     @endforeach
