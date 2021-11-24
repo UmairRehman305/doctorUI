@@ -21,7 +21,7 @@
                                 <form  method="POST" action="{{ route('register') }}" class="user mt-2">
                                  @csrf
                                     <div class="form-group">
-                                        <input   id="name" type="text"  name="name" class="form-control form-control-user  @error('name') is-invalid @enderror" value="{{ old('email') }}" placeholder="Enter your name"  required autocomplete="name" autofocus>                                        
+                                        <input   id="name" type="text"  name="name" class="form-control form-control-user  @error('name') is-invalid @enderror" value="{{ old('email') }}" placeholder="Enter your first name"  required autocomplete="name" autofocus>                                        
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -30,7 +30,19 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input id="phone" type="number"  name="phone" class="form-control form-control-user  @error('phone') is-invalid @enderror" placeholder="Enter your phone number"   required>                                        
+                                        <input   id="name" type="text"  name="lastname" class="form-control form-control-user "  placeholder="Enter your Last name" autofocus>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input   id="cnic" type="number"  name="cnic" class="form-control form-control-user" placeholder="Enter your CNIC"  autofocus>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input   id="pmdc" type="number"  name="pmdc" class="form-control form-control-user" placeholder="Enter your PMDC Number"  autofocus>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input id="phone" type="number"  name="phone" class="form-control form-control-user  @error('phone') is-invalid @enderror" placeholder="Enter your Phone number"   required>                                        
                                         @error('phone')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -66,7 +78,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input  id="password-confirm"  name="password_confirmation"  type="password" class="form-control" placeholder="Reenter  Your Password"  required autocomplete="new-password">                                        
+                                        <input  id="password-confirm"  name="password_confirmation"  type="password" class="form-control" placeholder="Confirm  Your Password"  required autocomplete="new-password">                                        
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-user btn-block">

@@ -1,39 +1,67 @@
+
+@php
+  $profile = DB::table('prsonal_info') ->where( 'userID' , Auth::id())->get();
+@endphp
+
+
 <!-- ======= Header ======= -->
 <header id="header" class="d-flex align-items-center">
   <div class="container d-flex align-items-center justify-content-between">
-
     <h1 class="logo"><a href="/">BizLand<span>.</span></a></h1>
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
-
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto" href="/">Home</a></li>
-        <li><a class="nav-link scrollto" href="/doctors-profile">Doctor's Profile</a></li>
-        <li><a class="nav-link scrollto" href="/about-us">About Us</a></li>
-        <li><a class="nav-link scrollto " href="/contact-us">Contact Us</a></li>
-        <li><a class="nav-link scrollto" href="/login">Login</a></li>
-        <li><a class="nav-link scrollto" href="/register">Sign Up</a></li>
+      <div class="container d-flex align-items-center justify-content-between">
+                <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="/">Home</a></li>
+                    <li><a class="nav-link scrollto" href="../doctors-profile">Doctor's Profile</a></li>
+                    <li><a class="nav-link scrollto" href="../about-us">About Us</a></li>
+                    <li><a class="nav-link scrollto " href="../contact-us">Contact Us</a></li>
+                    @if(Auth::user())
+                      @if(Auth::user()->role == 'admin')
+                        <li><a class="nav-link scrollto " href="../dashboard">Dashboard</a></li>
+                      @endif
+                    @endif
+                    
+                @guest
+                    <li><a class="nav-link scrollto" href="/login">Login</a></li>
+                    @if (Route::has('register'))
+                      <li><a class="nav-link scrollto" href="/register">Sign Up</a></li>
+                    @endif
+                @else
+                @if($profile-> isEmpty())
+                  <li>
+                      <a href="../fill-from">Create Profile</a>
+                  </li>
+                @endif
+                
+                @if($profile-> isNotEmpty())                   
+                    <li>
+                        <a href="../view-profile">My Profile</a>
+                    </li>
+                @endif
 
-        <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-              <ul>
-                <li><a href="#">Deep Drop Down 1</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
-          </ul>
-        </li> -->
+                    <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul> 
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}</a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf</form>
+                        </ul>
+                    </li>
+                @endguest   
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+
+            </div>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
+    
     </nav><!-- .navbar -->
 
   </div>

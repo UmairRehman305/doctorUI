@@ -1,4 +1,4 @@
-
+<!-- 
 
 <section id="counts" class="counts fadein">
     <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -38,4 +38,4 @@
     </div>
 </section>
 
-
+ -->
